@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amca International Group | Global Solutions in Trading & Finance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap');
+
+        :root {
+            --primary-blue: #0f172a;
+            --accent-gold: #b45309;
+            --soft-gold: #fbbf24;
+            --corporate-gray: #f8fafc;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .serif-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.7)), 
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .gold-border-hover:hover {
+            border-color: var(--soft-gold);
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--soft-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .lang-active {
+            border-bottom: 2px solid var(--accent-gold);
+            color: var(--primary-blue);
+        }
+
+        /* Contenedor del logo principal */
+        .main-logo {
+            height: 50px;
+            width: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- Header & Navigation -->
+    <header class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-md">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            
+            <!-- LOGO QUE REEMPLAZA AL TEXTO E ICONO -->
+            <a href="#inicio" class="flex items-center">
+                <img src="Logotype.png" alt="Amca International Group" class="main-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <!-- Fallback textual elegante por si falla la imagen -->
+                <div style="display:none;" class="flex-col font-bold leading-none tracking-tight">
+                    <span class="text-lg">AMCA INTERNATIONAL</span>
+                    <span class="text-[10px] text-amber-700 tracking-widest uppercase">Group</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex space-x-8 font-medium text-sm uppercase tracking-wider">
+                <a href="#inicio" class="nav-link hover:text-amber-700 transition" data-i18n="nav_home">Home</a>
+                <a href="#nosotros" class="nav-link hover:text-amber-700 transition" data-i18n="nav_about">About Us</a>
+                <a href="#divisiones" class="nav-link hover:text-amber-700 transition" data-i18n="nav_divisions">Divisions</a>
+                <a href="#compliance" class="nav-link hover:text-amber-700 transition" data-i18n="nav_compliance">Compliance</a>
+                <a href="#contacto" class="nav-link hover:text-amber-700 transition" data-i18n="nav_contact">Contact</a>
+            </nav>
+
+            <!-- Language Toggle: EN | ES -->
+            <div class="flex items-center space-x-4">
+                <button onclick="changeLanguage('en')" id="btn-en" class="text-xs font-bold transition lang-active">EN</button>
+                <span class="text-slate-300">|</span>
+                <button onclick="changeLanguage('es')" id="btn-es" class="text-xs font-bold text-slate-400 hover:text-slate-900 transition">ES</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-gradient h-screen flex items-center justify-center text-center text-white pt-16">
+        <div class="max-w-4xl px-6">
+            <span class="text-amber-400 font-semibold tracking-[0.3em] uppercase text-sm mb-4 block" data-i18n="hero_tagline">Global Leadership in Strategic Assets</span>
+            <h1 class="text-5xl md:text-7xl mb-6" data-i18n="hero_title">Global Excellence in Trading & Finance</h1>
+            <p class="text-xl md:text-2xl font-light mb-10 text-slate-200" data-i18n="hero_subtitle">Connecting markets through comprehensive solutions in commodities, energy, finance, and infrastructure.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#divisiones" class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-sm transition font-bold uppercase text-sm tracking-widest" data-i18n="hero_btn_divisions">Our Divisions</a>
+                <a href="#nosotros" class="border border-white/50 hover:bg-white/10 text-white px-8 py-4 rounded-sm transition font-bold uppercase text-sm tracking-widest" data-i18n="hero_btn_about">About the Group</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Summary Stats -->
+    <div class="bg-slate-900 py-10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+                <div>
+                    <div class="text-3xl font-bold text-amber-500">+15</div>
+                    <div class="text-[10px] uppercase tracking-widest text-slate-400" data-i18n="stat_countries">Operating Countries</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-amber-500">Tier 1</div>
+                    <div class="text-[10px] uppercase tracking-widest text-slate-400" data-i18n="stat_banking">Banking Relations</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-amber-500">Direct</div>
+                    <div class="text-[10px] uppercase tracking-widest text-slate-400" data-i18n="stat_refineries">Refinery Access</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-amber-500">24/7</div>
+                    <div class="text-[10px] uppercase tracking-widest text-slate-400" data-i18n="stat_trading">International Trading</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="nosotros" class="py-24 container mx-auto px-6">
+        <div class="flex flex-col md:flex-row gap-16 items-center">
+            <div class="md:w-1/2">
+                <h2 class="text-4xl mb-6 leading-tight" data-i18n="about_title">Institutional Strength and Global Reach</h2>
+                <p class="text-slate-600 mb-6 leading-relaxed" data-i18n="about_desc">
+                    Amca International Group is an asset management conglomerate specialized in critical sectors of the global economy. We serve as the ultimate bridge between institutional supply and sovereign and private capital demand.
+                </p>
+                <div class="space-y-4">
+                    <div class="flex gap-4">
+                        <i class="fa-solid fa-check text-amber-600 mt-1"></i>
+                        <div>
+                            <h4 class="font-bold" data-i18n="mission_title">Mission</h4>
+                            <p class="text-sm text-slate-500" data-i18n="mission_desc">Facilitate global trade of strategic assets through innovative financial solutions.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <i class="fa-solid fa-check text-amber-600 mt-1"></i>
+                        <div>
+                            <h4 class="font-bold" data-i18n="vision_title">Vision</h4>
+                            <p class="text-sm text-slate-500" data-i18n="vision_desc">To be the undisputed reference partner in international business architecture by 2030.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-1/2 grid grid-cols-2 gap-4">
+                <img src="https://images.unsplash.com/photo-1573164060897-425941c302ba?auto=format&fit=crop&w=400&q=80" alt="Executive Meeting" class="rounded shadow-lg">
+                <img src="https://images.unsplash.com/photo-1611974717537-483584050b91?auto=format&fit=crop&w=400&q=80" alt="Logistics" class="rounded shadow-lg mt-8">
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Divisions -->
+    <section id="divisiones" class="py-24 bg-slate-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl mb-4" data-i18n="div_main_title">Strategic Business Units</h2>
+                <div class="w-20 h-1 bg-amber-600 mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 border-t-4 border-amber-600 shadow-sm gold-border-hover transition">
+                    <div class="text-amber-600 text-3xl mb-6"><i class="fa-solid fa-gem"></i></div>
+                    <h3 class="text-2xl mb-4" data-i18n="div1_title">Commodities & Precious Metals</h3>
+                    <p class="text-slate-600 text-sm mb-6" data-i18n="div1_desc">Intermediation of high-value physical assets: Gold (Bullion), Silver, Diamonds, and Industrial Metals (Bronze, Aluminum).</p>
+                    <ul class="text-xs space-y-2 text-slate-500 font-semibold uppercase tracking-wider">
+                        <li data-i18n="div1_item1">• Guaranteed Traceability</li>
+                        <li data-i18n="div1_item2">• Armored Logistics</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 border-t-4 border-amber-600 shadow-sm gold-border-hover transition">
+                    <div class="text-amber-600 text-3xl mb-6"><i class="fa-solid fa-building-columns"></i></div>
+                    <h3 class="text-2xl mb-4" data-i18n="div2_title">Financial Intermediation</h3>
+                    <p class="text-slate-600 text-sm mb-6" data-i18n="div2_desc">Financial engineering for international trade. Management of SBLC (Standby Letters of Credit) and BG (Bank Guarantees).</p>
+                    <ul class="text-xs space-y-2 text-slate-500 font-semibold uppercase tracking-wider">
+                        <li data-i18n="div2_item1">• Tier 1 Banking Relations</li>
+                        <li data-i18n="div2_item2">• Instrument Monetization</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 border-t-4 border-amber-600 shadow-sm gold-border-hover transition">
+                    <div class="text-amber-600 text-3xl mb-6"><i class="fa-solid fa-oil-well"></i></div>
+                    <h3 class="text-2xl mb-4" data-i18n="div3_title">Energy, Oil & Gas</h3>
+                    <p class="text-slate-600 text-sm mb-6" data-i18n="div3_desc">Direct representation of refineries. Products: Crude, EN590 Diesel, Jet Fuel A1, and petrochemical derivatives.</p>
+                    <ul class="text-xs space-y-2 text-slate-500 font-semibold uppercase tracking-wider">
+                        <li data-i18n="div3_item1">• SPOT and Lifts Contracts</li>
+                        <li data-i18n="div3_item2">• Direct Refinery Access</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 border-t-4 border-amber-600 shadow-sm gold-border-hover transition">
+                    <div class="text-amber-600 text-3xl mb-6"><i class="fa-solid fa-city"></i></div>
+                    <h3 class="text-2xl mb-4" data-i18n="div4_title">International Real Estate</h3>
+                    <p class="text-slate-600 text-sm mb-6" data-i18n="div4_desc">Development and marketing of luxury projects, commercial and industrial complexes globally.</p>
+                    <ul class="text-xs space-y-2 text-slate-500 font-semibold uppercase tracking-wider">
+                        <li data-i18n="div4_item1">• Strategic Asset Hunting</li>
+                        <li data-i18n="div4_item2">• Investment Management</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 border-t-4 border-amber-600 shadow-sm gold-border-hover transition md:col-span-2">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div>
+                            <div class="text-amber-600 text-3xl mb-6"><i class="fa-solid fa-ship"></i></div>
+                            <h3 class="text-2xl mb-4" data-i18n="div5_title">Global Food Trading</h3>
+                            <p class="text-slate-600 text-sm mb-6" data-i18n="div5_desc">Massive import and export of food: Grains, Proteins, Sugar, and Oils. Strategic supply of fresh fruits and vegetables.</p>
+                        </div>
+                        <div class="flex-shrink-0 flex items-center">
+                            <ul class="text-xs space-y-2 text-slate-500 font-semibold uppercase tracking-wider bg-slate-50 p-4 rounded border">
+                                <li data-i18n="div5_item1">• Halal / Kosher Certification</li>
+                                <li data-i18n="div5_item2">• Cold Supply Chain Management</li>
+                                <li data-i18n="div5_item3">• Phytosanitary Traceability</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compliance Section -->
+    <section id="compliance" class="py-24 bg-slate-900 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <i class="fa-solid fa-shield-halved text-5xl text-amber-500 mb-8"></i>
+            <h2 class="text-4xl mb-6" data-i18n="compliance_title">Commitment to Compliance</h2>
+            <p class="max-w-3xl mx-auto text-slate-400 mb-12" data-i18n="compliance_desc">
+                We operate under the strictest international Due Diligence (KYC/AML) standards. Transparency is our fundamental pillar to ensure the safety of every transaction and our banking partners.
+            </p>
+            <div class="flex justify-center gap-6">
+                <button class="bg-white text-slate-900 px-6 py-3 font-bold text-xs uppercase tracking-widest hover:bg-amber-500 hover:text-white transition" data-i18n="compliance_btn1">Request Protocols</button>
+                <button class="border border-white/30 px-6 py-3 font-bold text-xs uppercase tracking-widest hover:bg-white/10 transition" data-i18n="compliance_btn2">KYC Portal</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto" class="bg-slate-950 text-white py-16 border-t border-white/5">
+        <div class="container mx-auto px-6 grid md:grid-cols-4 gap-12">
+            <div class="col-span-1 md:col-span-2">
+                <div class="mb-6">
+                    <img src="Logotype.jpg" alt="Amca Logo" class="main-logo brightness-0 invert opacity-90" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span style="display:none;" class="font-bold text-xl uppercase tracking-tighter">Amca International Group</span>
+                </div>
+                <p class="text-slate-500 text-sm mb-6 max-w-sm" data-i18n="footer_desc">
+                    Leading strategic intermediation in the world's highest value markets. High-level financial and operational solutions.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-slate-400 hover:text-amber-500 transition"><i class="fa-brands fa-linkedin-in text-xl"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-amber-500 transition"><i class="fa-brands fa-x-twitter text-xl"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-amber-500 uppercase tracking-widest text-xs mb-6" data-i18n="footer_contact_title">Offices & Contact</h4>
+                <ul class="text-slate-500 text-sm space-y-4">
+                    <li class="flex items-start gap-2">
+                        <i class="fa-solid fa-location-dot mt-1 text-slate-300"></i>
+                        <span data-i18n="footer_address">Central Office: Financial District, International Hub.</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fa-solid fa-envelope text-slate-300"></i>
+                        <span>info@amcaintergroup.com</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fa-solid fa-phone text-slate-300"></i>
+                        <span>+1 (234) 567-890</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-amber-500 uppercase tracking-widest text-xs mb-6" data-i18n="footer_links_title">Quick Links</h4>
+                <ul class="text-slate-500 text-sm space-y-2">
+                    <li><a href="#divisiones" class="hover:text-white transition" data-i18n="link_commodities">Commodities</a></li>
+                    <li><a href="#divisiones" class="hover:text-white transition" data-i18n="link_finance">Engineering Finance</a></li>
+                    <li><a href="#divisiones" class="hover:text-white transition" data-i18n="link_energy">Energy & Oil</a></li>
+                    <li><a href="#compliance" class="hover:text-white transition" data-i18n="link_legal">Legal Notice</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 mt-16 pt-8 border-t border-white/5 text-center text-slate-600 text-xs">
+            <p data-i18n="footer_copy">© 2026 AMCA INTERNATIONAL GROUP. All Rights Reserved. | www.amcaintergroup.com</p>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                nav_home: "Home",
+                nav_about: "About Us",
+                nav_divisions: "Divisions",
+                nav_compliance: "Compliance",
+                nav_contact: "Contact",
+                hero_tagline: "Global Leadership in Strategic Assets",
+                hero_title: "Global Excellence in Trading & Finance",
+                hero_subtitle: "Connecting markets through comprehensive solutions in commodities, energy, finance, and infrastructure.",
+                hero_btn_divisions: "Our Divisions",
+                hero_btn_about: "About the Group",
+                stat_countries: "Operating Countries",
+                stat_banking: "Banking Relations",
+                stat_refineries: "Refinery Access",
+                stat_trading: "International Trading",
+                about_title: "Institutional Strength and Global Reach",
+                about_desc: "Amca International Group is an asset management conglomerate specialized in critical sectors of the global economy. We serve as the ultimate bridge between institutional supply and sovereign and private capital demand.",
+                mission_title: "Mission",
+                mission_desc: "Facilitate global trade of strategic assets through innovative financial solutions.",
+                vision_title: "Vision",
+                vision_desc: "To be the undisputed reference partner in international business architecture by 2030.",
+                div_main_title: "Strategic Business Units",
+                div1_title: "Commodities & Precious Metals",
+                div1_desc: "Intermediation of high-value physical assets: Gold (Bullion), Silver, Diamonds, and Industrial Metals (Bronze, Aluminum).",
+                div1_item1: "• Guaranteed Traceability",
+                div1_item2: "• Armored Logistics",
+                div2_title: "Financial Intermediation",
+                div2_desc: "Financial engineering for international trade. Management of SBLC (Standby Letters of Credit) and BG (Bank Guarantees).",
+                div2_item1: "• Tier 1 Banking Relations",
+                div2_item2: "• Instrument Monetization",
+                div3_title: "Energy, Oil & Gas",
+                div3_desc: "Direct representation of refineries. Products: Crude, EN590 Diesel, Jet Fuel A1, and petrochemical derivatives.",
+                div3_item1: "• SPOT and Lifts Contracts",
+                div3_item2: "• Direct Refinery Access",
+                div4_title: "International Real Estate",
+                div4_desc: "Development and marketing of luxury projects, commercial and industrial complexes globally.",
+                div4_item1: "• Strategic Asset Hunting",
+                div4_item2: "• Investment Management",
+                div5_title: "Global Food Trading",
+                div5_desc: "Massive import and export of food: Grains, Proteins, Sugar, and Oils. Strategic supply of fresh fruits and vegetables.",
+                div5_item1: "• Halal / Kosher Certification",
+                div5_item2: "• Cold Supply Chain Management",
+                div5_item3: "• Phytosanitary Traceability",
+                compliance_title: "Commitment to Compliance",
+                compliance_desc: "We operate under the strictest international Due Diligence (KYC/AML) standards. Transparency is our fundamental pillar to ensure the safety of every transaction and our banking partners.",
+                compliance_btn1: "Request Protocols",
+                compliance_btn2: "KYC Portal",
+                footer_desc: "Leading strategic intermediation in the world's highest value markets. High-level financial and operational solutions.",
+                footer_contact_title: "Offices & Contact",
+                footer_address: "Central Office: Financial District, International Hub.",
+                footer_links_title: "Quick Links",
+                link_commodities: "Commodities",
+                link_finance: "Engineering Finance",
+                link_energy: "Energy & Oil",
+                link_legal: "Legal Notice",
+                footer_copy: "© 2026 AMCA INTERNATIONAL GROUP. All Rights Reserved. | www.amcaintergroup.com"
+            },
+            es: {
+                nav_home: "Inicio",
+                nav_about: "Nosotros",
+                nav_divisions: "Divisiones",
+                nav_compliance: "Compliance",
+                nav_contact: "Contacto",
+                hero_tagline: "Liderazgo Global en Activos Estratégicos",
+                hero_title: "Global Excellence in Trading & Finance",
+                hero_subtitle: "Conectando mercados a través de soluciones integrales en commodities, energía, finanzas e infraestructura.",
+                hero_btn_divisions: "Nuestras Divisiones",
+                hero_btn_about: "Sobre el Grupo",
+                stat_countries: "Países Operativos",
+                stat_banking: "Relaciones Bancarias",
+                stat_refineries: "Acceso a Refinerías",
+                stat_trading: "Trading Internacional",
+                about_title: "Solidez Institucional y Alcance Global",
+                about_desc: "Amca International Group es un conglomerado de gestión de activos especializado en sectores críticos de la economía mundial. Servimos como el puente definitivo entre la oferta institucional y la demanda de capital soberano y privado.",
+                mission_title: "Misión",
+                mission_desc: "Facilitar el comercio global de activos estratégicos mediante soluciones financieras innovadoras.",
+                vision_title: "Visión",
+                vision_desc: "Consolidarnos como el socio de referencia indiscutible en la arquitectura de negocios internacionales para 2030.",
+                div_main_title: "Unidades de Negocio Estratégicas",
+                div1_title: "Commodities & Precious Metals",
+                div1_desc: "Intermediación de activos físicos de alto valor: Oro (Bullion), Plata, Diamantes y Metales Industriales (Bronce, Aluminio).",
+                div1_item1: "• Trazabilidad Garantizada",
+                div1_item2: "• Logística Blindada",
+                div2_title: "Financial Intermediation",
+                div2_desc: "Ingeniería financiera para el comercio internacional. Gestión de SBLC (Standby Letters of Credit) y BG (Bank Guarantees).",
+                div2_item1: "• Relaciones Interbancarias Tier 1",
+                div2_item2: "• Monetización de Instrumentos",
+                div3_title: "Energy, Oil & Gas",
+                div3_desc: "Representación directa de refinerías. Productos: Crudo, Diésel EN590, Jet Fuel A1 y derivados petroquímicos.",
+                div3_item1: "• Contratos SPOT y Lifts",
+                div3_item2: "• Acceso Directo a Refinerías",
+                div4_title: "International Real Estate",
+                div4_desc: "Desarrollo y comercialización de proyectos de lujo, complejos comerciales e industriales a nivel global.",
+                div4_item1: "• Asset Hunting Estratégico",
+                div4_item2: "• Gestión de Inversiones",
+                div5_title: "Global Food Trading",
+                div5_desc: "Importación y exportación masiva de alimentos: Granos, Proteínas, Azúcar y Aceites. Suministro estratégico de frutas y hortalizas frescas.",
+                div5_item1: "• Certificación Halal / Kosher",
+                div5_item2: "• Gestión de Supply Chain Fría",
+                div5_item3: "• Trazabilidad Fitosanitaria",
+                compliance_title: "Compromiso con el Cumplimiento (Compliance)",
+                compliance_desc: "Operamos bajo los más estrictos estándares internacionales de Debida Diligencia (KYC/AML). La transparencia es nuestro pilar fundamental para garantizar la seguridad de cada transacción y de nuestros aliados bancarios.",
+                compliance_btn1: "Solicitar Protocolos",
+                compliance_btn2: "Portal KYC",
+                footer_desc: "Liderando la intermediación estratégica en los mercados mundiales de mayor valor. Soluciones financieras y operativas de alto nivel.",
+                footer_contact_title: "Sedes & Contacto",
+                footer_address: "Central Office: Financial District, International Hub.",
+                footer_links_title: "Enlaces Rápidos",
+                link_commodities: "Commodities",
+                link_finance: "Engineering Finance",
+                link_energy: "Energy & Oil",
+                link_legal: "Legal Notice",
+                footer_copy: "© 2026 AMCA INTERNATIONAL GROUP. Todos los derechos reservados. | www.amcaintergroup.com"
+            }
+        };
+
+        function changeLanguage(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            document.getElementById('btn-en').classList.remove('lang-active', 'text-slate-900');
+            document.getElementById('btn-en').classList.add('text-slate-400');
+            document.getElementById('btn-es').classList.remove('lang-active', 'text-slate-900');
+            document.getElementById('btn-es').classList.add('text-slate-400');
+
+            const activeBtn = document.getElementById(`btn-${lang}`);
+            activeBtn.classList.add('lang-active');
+            activeBtn.classList.remove('text-slate-400');
+            activeBtn.classList.add('text-slate-900');
+
+            localStorage.setItem('preferredLang', lang);
+            document.documentElement.lang = lang;
+        }
+
+        window.onload = () => {
+            const savedLang = localStorage.getItem('preferredLang') || 'en';
+            changeLanguage(savedLang);
+        };
+    </script>
+</body>
+</html>

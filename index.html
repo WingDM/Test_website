@@ -1,456 +1,320 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amca International Group | Global Solutions in Trading & Finance</title>
+    <title>KRAZZY PIZZA | Más Pizza Más Krazzy 🍕</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .font-impact { font-family: 'Bangers', cursive; }
+        
+        .orange-glow {
+            text-shadow: 0 0 15px rgba(249, 115, 22, 0.6);
+        }
+        
+        .bg-ny-dark { background-color: #0a0a0a; }
+        
+        .sticky-whatsapp {
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .sticky-whatsapp:hover { transform: scale(1.1) rotate(5deg); }
 
-        :root {
-            --primary-blue: #0f172a;
-            --accent-gold: #b45309;
-            --soft-gold: #fbbf24;
-            --corporate-gray: #f8fafc;
+        .menu-tab-active {
+            background-color: #f97316;
+            color: black;
+            transform: translateY(-2px);
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        h1, h2, h3, .serif-font {
-            font-family: 'Playfair Display', serif;
-        }
-
-        .hero-gradient {
-            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.7)), 
-                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .gold-border-hover:hover {
-            border-color: var(--soft-gold);
-            transform: translateY(-5px);
-            transition: all 0.3s ease;
-        }
-
-        .nav-link {
-            position: relative;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: var(--soft-gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .lang-active {
-            border-bottom: 2px solid var(--accent-gold);
-            color: var(--primary-blue);
-        }
-
-        /* Contenedor del logo principal */
-        .main-logo {
-            height: 50px;
-            width: auto;
-            display: block;
-        }
+        /* Custom scrollbar for NY style */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #f97316; border-radius: 10px; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body class="bg-ny-dark text-white overflow-x-hidden">
 
-    <!-- Header & Navigation -->
-    <header class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-md">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            
-            <!-- LOGO QUE REEMPLAZA AL TEXTO E ICONO -->
-            <a href="#inicio" class="flex items-center">
-                <img src="Logotype.png" alt="Amca International Group" class="main-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                <!-- Fallback textual elegante por si falla la imagen -->
-                <div style="display:none;" class="flex-col font-bold leading-none tracking-tight">
-                    <span class="text-lg">AMCA INTERNATIONAL</span>
-                    <span class="text-[10px] text-amber-700 tracking-widest uppercase">Group</span>
-                </div>
-            </a>
+    <!-- Sticky WhatsApp Button -->
+    <a href="https://wa.me/123456789" target="_blank" class="sticky-whatsapp fixed bottom-6 right-6 z-50 bg-[#25D366] p-4 rounded-full shadow-2xl flex items-center justify-center border-2 border-white md:bottom-10 md:right-10">
+        <i data-lucide="message-circle" class="w-8 h-8 text-white fill-current"></i>
+    </a>
 
-            <nav class="hidden md:flex space-x-8 font-medium text-sm uppercase tracking-wider">
-                <a href="#inicio" class="nav-link hover:text-amber-700 transition" data-i18n="nav_home">Home</a>
-                <a href="#nosotros" class="nav-link hover:text-amber-700 transition" data-i18n="nav_about">About Us</a>
-                <a href="#divisiones" class="nav-link hover:text-amber-700 transition" data-i18n="nav_divisions">Divisions</a>
-                <a href="#compliance" class="nav-link hover:text-amber-700 transition" data-i18n="nav_compliance">Compliance</a>
-                <a href="#contacto" class="nav-link hover:text-amber-700 transition" data-i18n="nav_contact">Contact</a>
-            </nav>
-
-            <!-- Language Toggle: EN | ES -->
-            <div class="flex items-center space-x-4">
-                <button onclick="changeLanguage('en')" id="btn-en" class="text-xs font-bold transition lang-active">EN</button>
-                <span class="text-slate-300">|</span>
-                <button onclick="changeLanguage('es')" id="btn-es" class="text-xs font-bold text-slate-400 hover:text-slate-900 transition">ES</button>
+    <!-- Header / Navbar -->
+    <nav class="fixed w-full z-40 bg-black/80 backdrop-blur-md border-b border-orange-500/20">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="font-impact text-3xl text-orange-500 tracking-wider">KRAZZY PIZZA</span>
             </div>
+            
+            <div class="hidden md:flex gap-8 font-bold text-sm tracking-tighter uppercase">
+                <a href="#menu" class="hover:text-orange-500 transition-colors">Menú</a>
+                <a href="#delivery" class="hover:text-orange-500 transition-colors">Delivery</a>
+                <a href="#nosotros" class="hover:text-orange-500 transition-colors">Nosotros</a>
+                <a href="#contacto" class="hover:text-orange-500 transition-colors">Ubicación</a>
+            </div>
+
+            <a href="https://instagram.com/KRAZZYPIZZAVE" target="_blank" class="bg-orange-600 hover:bg-orange-500 text-black font-black px-5 py-2 rounded-full text-xs uppercase transition-all flex items-center gap-2">
+                <i data-lucide="instagram" class="w-4 h-4"></i> Seguir
+            </a>
         </div>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
-    <section id="inicio" class="hero-gradient h-screen flex items-center justify-center text-center text-white pt-16">
-        <div class="max-w-4xl px-6">
-            <span class="text-amber-400 font-semibold tracking-[0.3em] uppercase text-sm mb-4 block" data-i18n="hero_tagline">Global Leadership in Strategic Assets</span>
-            <h1 class="text-5xl md:text-7xl mb-6" data-i18n="hero_title">Global Excellence in Trading & Finance</h1>
-            <p class="text-xl md:text-2xl font-light mb-10 text-slate-200" data-i18n="hero_subtitle">Connecting markets through comprehensive solutions in commodities, energy, finance, and infrastructure.</p>
-            <div class="flex flex-col md:flex-row justify-center gap-4">
-                <a href="#divisiones" class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-sm transition font-bold uppercase text-sm tracking-widest" data-i18n="hero_btn_divisions">Our Divisions</a>
-                <a href="#nosotros" class="border border-white/50 hover:bg-white/10 text-white px-8 py-4 rounded-sm transition font-bold uppercase text-sm tracking-widest" data-i18n="hero_btn_about">About the Group</a>
-            </div>
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1920&q=80" alt="Pizza Estilo New York" class="w-full h-full object-cover opacity-40 scale-110">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-ny-dark to-ny-dark"></div>
         </div>
-    </section>
 
-    <!-- Summary Stats -->
-    <div class="bg-slate-900 py-10">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
-                <div>
-                    <div class="text-3xl font-bold text-amber-500">+15</div>
-                    <div class="text-[10px] uppercase tracking-widest text-slate-400" data-i18n="stat_countries">Operating Countries</div>
-                </div>
-                <div>
-                    <div class="text-3xl font-bold text-amber-500">Tier 1</div>
-                    <div class="text-[10px] uppercase tracking-widest text-slate-400" data-i18n="stat_banking">Banking Relations</div>
-                </div>
-                <div>
-                    <div class="text-3xl font-bold text-amber-500">Direct</div>
-                    <div class="text-[10px] uppercase tracking-widest text-slate-400" data-i18n="stat_refineries">Refinery Access</div>
-                </div>
-                <div>
-                    <div class="text-3xl font-bold text-amber-500">24/7</div>
-                    <div class="text-[10px] uppercase tracking-widest text-slate-400" data-i18n="stat_trading">International Trading</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- About Section -->
-    <section id="nosotros" class="py-24 container mx-auto px-6">
-        <div class="flex flex-col md:flex-row gap-16 items-center">
-            <div class="md:w-1/2">
-                <h2 class="text-4xl mb-6 leading-tight" data-i18n="about_title">Institutional Strength and Global Reach</h2>
-                <p class="text-slate-600 mb-6 leading-relaxed" data-i18n="about_desc">
-                    Amca International Group is an asset management conglomerate specialized in critical sectors of the global economy. We serve as the ultimate bridge between institutional supply and sovereign and private capital demand.
-                </p>
-                <div class="space-y-4">
-                    <div class="flex gap-4">
-                        <i class="fa-solid fa-check text-amber-600 mt-1"></i>
-                        <div>
-                            <h4 class="font-bold" data-i18n="mission_title">Mission</h4>
-                            <p class="text-sm text-slate-500" data-i18n="mission_desc">Facilitate global trade of strategic assets through innovative financial solutions.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <i class="fa-solid fa-check text-amber-600 mt-1"></i>
-                        <div>
-                            <h4 class="font-bold" data-i18n="vision_title">Vision</h4>
-                            <p class="text-sm text-slate-500" data-i18n="vision_desc">To be the undisputed reference partner in international business architecture by 2030.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="md:w-1/2 grid grid-cols-2 gap-4">
-                <img src="https://images.unsplash.com/photo-1573164060897-425941c302ba?auto=format&fit=crop&w=400&q=80" alt="Executive Meeting" class="rounded shadow-lg">
-                <img src="https://images.unsplash.com/photo-1611974717537-483584050b91?auto=format&fit=crop&w=400&q=80" alt="Logistics" class="rounded shadow-lg mt-8">
-            </div>
-        </div>
-    </section>
-
-    <!-- Business Divisions -->
-    <section id="divisiones" class="py-24 bg-slate-100">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl mb-4" data-i18n="div_main_title">Strategic Business Units</h2>
-                <div class="w-20 h-1 bg-amber-600 mx-auto"></div>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 border-t-4 border-amber-600 shadow-sm gold-border-hover transition">
-                    <div class="text-amber-600 text-3xl mb-6"><i class="fa-solid fa-gem"></i></div>
-                    <h3 class="text-2xl mb-4" data-i18n="div1_title">Commodities & Precious Metals</h3>
-                    <p class="text-slate-600 text-sm mb-6" data-i18n="div1_desc">Intermediation of high-value physical assets: Gold (Bullion), Silver, Diamonds, and Industrial Metals (Bronze, Aluminum).</p>
-                    <ul class="text-xs space-y-2 text-slate-500 font-semibold uppercase tracking-wider">
-                        <li data-i18n="div1_item1">• Guaranteed Traceability</li>
-                        <li data-i18n="div1_item2">• Armored Logistics</li>
-                    </ul>
-                </div>
-
-                <div class="bg-white p-8 border-t-4 border-amber-600 shadow-sm gold-border-hover transition">
-                    <div class="text-amber-600 text-3xl mb-6"><i class="fa-solid fa-building-columns"></i></div>
-                    <h3 class="text-2xl mb-4" data-i18n="div2_title">Financial Intermediation</h3>
-                    <p class="text-slate-600 text-sm mb-6" data-i18n="div2_desc">Financial engineering for international trade. Management of SBLC (Standby Letters of Credit) and BG (Bank Guarantees).</p>
-                    <ul class="text-xs space-y-2 text-slate-500 font-semibold uppercase tracking-wider">
-                        <li data-i18n="div2_item1">• Tier 1 Banking Relations</li>
-                        <li data-i18n="div2_item2">• Instrument Monetization</li>
-                    </ul>
-                </div>
-
-                <div class="bg-white p-8 border-t-4 border-amber-600 shadow-sm gold-border-hover transition">
-                    <div class="text-amber-600 text-3xl mb-6"><i class="fa-solid fa-oil-well"></i></div>
-                    <h3 class="text-2xl mb-4" data-i18n="div3_title">Energy, Oil & Gas</h3>
-                    <p class="text-slate-600 text-sm mb-6" data-i18n="div3_desc">Direct representation of refineries. Products: Crude, EN590 Diesel, Jet Fuel A1, and petrochemical derivatives.</p>
-                    <ul class="text-xs space-y-2 text-slate-500 font-semibold uppercase tracking-wider">
-                        <li data-i18n="div3_item1">• SPOT and Lifts Contracts</li>
-                        <li data-i18n="div3_item2">• Direct Refinery Access</li>
-                    </ul>
-                </div>
-
-                <div class="bg-white p-8 border-t-4 border-amber-600 shadow-sm gold-border-hover transition">
-                    <div class="text-amber-600 text-3xl mb-6"><i class="fa-solid fa-city"></i></div>
-                    <h3 class="text-2xl mb-4" data-i18n="div4_title">International Real Estate</h3>
-                    <p class="text-slate-600 text-sm mb-6" data-i18n="div4_desc">Development and marketing of luxury projects, commercial and industrial complexes globally.</p>
-                    <ul class="text-xs space-y-2 text-slate-500 font-semibold uppercase tracking-wider">
-                        <li data-i18n="div4_item1">• Strategic Asset Hunting</li>
-                        <li data-i18n="div4_item2">• Investment Management</li>
-                    </ul>
-                </div>
-
-                <div class="bg-white p-8 border-t-4 border-amber-600 shadow-sm gold-border-hover transition md:col-span-2">
-                    <div class="flex flex-col md:flex-row gap-8">
-                        <div>
-                            <div class="text-amber-600 text-3xl mb-6"><i class="fa-solid fa-ship"></i></div>
-                            <h3 class="text-2xl mb-4" data-i18n="div5_title">Global Food Trading</h3>
-                            <p class="text-slate-600 text-sm mb-6" data-i18n="div5_desc">Massive import and export of food: Grains, Proteins, Sugar, and Oils. Strategic supply of fresh fruits and vegetables.</p>
-                        </div>
-                        <div class="flex-shrink-0 flex items-center">
-                            <ul class="text-xs space-y-2 text-slate-500 font-semibold uppercase tracking-wider bg-slate-50 p-4 rounded border">
-                                <li data-i18n="div5_item1">• Halal / Kosher Certification</li>
-                                <li data-i18n="div5_item2">• Cold Supply Chain Management</li>
-                                <li data-i18n="div5_item3">• Phytosanitary Traceability</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Compliance Section -->
-    <section id="compliance" class="py-24 bg-slate-900 text-white">
-        <div class="container mx-auto px-6 text-center">
-            <i class="fa-solid fa-shield-halved text-5xl text-amber-500 mb-8"></i>
-            <h2 class="text-4xl mb-6" data-i18n="compliance_title">Commitment to Compliance</h2>
-            <p class="max-w-3xl mx-auto text-slate-400 mb-12" data-i18n="compliance_desc">
-                We operate under the strictest international Due Diligence (KYC/AML) standards. Transparency is our fundamental pillar to ensure the safety of every transaction and our banking partners.
+        <div class="relative z-10 text-center px-4 max-w-5xl">
+            <span class="inline-block bg-white text-black font-black px-3 py-1 mb-6 transform -rotate-2 text-sm uppercase tracking-widest">Auténtico NY Style</span>
+            <h1 class="font-impact text-7xl md:text-[12rem] leading-none orange-glow mb-4 italic uppercase tracking-tighter">
+                MÁS PIZZAS<br><span class="text-orange-500">MÁS KRAZZY</span>
+            </h1>
+            <p class="text-lg md:text-2xl font-light mb-10 max-w-2xl mx-auto text-gray-300">
+                Pizzas gigantes, bordes crujientes y el toque urbano que estabas buscando. Calidad premium, precio de barrio.
             </p>
-            <div class="flex justify-center gap-6">
-                <button class="bg-white text-slate-900 px-6 py-3 font-bold text-xs uppercase tracking-widest hover:bg-amber-500 hover:text-white transition" data-i18n="compliance_btn1">Request Protocols</button>
-                <button class="border border-white/30 px-6 py-3 font-bold text-xs uppercase tracking-widest hover:bg-white/10 transition" data-i18n="compliance_btn2">KYC Portal</button>
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                <a href="#menu" class="w-full md:w-auto bg-orange-500 hover:bg-orange-400 text-black font-black text-xl px-12 py-5 rounded-xl transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(249,115,22,0.4)]">
+                    VER MENÚ COMPLETO
+                </a>
+                <a href="#delivery" class="w-full md:w-auto border-2 border-white/20 hover:border-orange-500 px-12 py-5 rounded-xl font-bold transition-all">
+                    ¿CÓMO PEDIR?
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menú Digital -->
+    <section id="menu" class="py-24 bg-ny-dark">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-impact text-6xl text-orange-500 uppercase italic">KRAZZY MENU</h2>
+                <p class="text-gray-400 mt-2">Seleccionamos los mejores ingredientes para tu locura</p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="flex justify-center gap-2 mb-12">
+                <button onclick="switchTab('pizzas')" id="tab-pizzas" class="menu-tab menu-tab-active px-6 py-3 rounded-full font-black uppercase text-sm transition-all border border-orange-500/50">Pizzas</button>
+                <button onclick="switchTab('entradas')" id="tab-entradas" class="menu-tab px-6 py-3 rounded-full font-black uppercase text-sm transition-all border border-orange-500/50 hover:border-orange-500">Entradas</button>
+                <button onclick="switchTab('bebidas')" id="tab-bebidas" class="menu-tab px-6 py-3 rounded-full font-black uppercase text-sm transition-all border border-orange-500/50 hover:border-orange-500">Bebidas</button>
+            </div>
+
+            <!-- Menu Content -->
+            <div id="menu-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Se inyecta con JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Delivery Section -->
+    <section id="delivery" class="py-20 bg-orange-500 text-black">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                <div class="flex flex-col items-center">
+                    <div class="bg-black text-white p-6 rounded-full mb-6">
+                        <i data-lucide="smartphone" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="font-black text-2xl mb-2">PIDE ONLINE</h3>
+                    <p class="font-medium opacity-80">Escríbenos por WhatsApp o DM de Instagram.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="bg-black text-white p-6 rounded-full mb-6">
+                        <i data-lucide="truck" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="font-black text-2xl mb-2">DELIVERY RÁPIDO</h3>
+                    <p class="font-medium opacity-80">Llegamos en tiempo récord con tu pizza caliente.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="bg-black text-white p-6 rounded-full mb-6">
+                        <i data-lucide="utensils" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="font-black text-2xl mb-2">¡A DISFRUTAR!</h3>
+                    <p class="font-medium opacity-80">Vive la experiencia Krazzy en casa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nosotros -->
+    <section id="nosotros" class="py-24 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="font-impact text-6xl text-orange-500 mb-8 italic uppercase">NUESTRA HISTORIA</h2>
+                <p class="text-xl text-gray-300 leading-relaxed mb-6">
+                    Krazzy Pizza nació en las calles, inspirada en las pizzerías clásicas del Bronx y Manhattan. Nuestra misión es simple: traer el sabor auténtico de la "Gran Manzana" con un estilo rebelde y precios que no te vuelvan loco.
+                </p>
+                <p class="text-xl text-gray-300 leading-relaxed border-l-4 border-orange-500 pl-6 italic">
+                    "No es solo masa y queso, es actitud en cada rebanada."
+                </p>
+            </div>
+            <div class="relative">
+                <div class="absolute -inset-4 border-2 border-orange-500 rounded-2xl transform rotate-3"></div>
+                <img src="https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?auto=format&fit=crop&w=800&q=80" alt="Chef haciendo pizza" class="rounded-2xl relative z-10 grayscale hover:grayscale-0 transition-all duration-700">
+            </div>
+        </div>
+    </section>
+
+    <!-- Prueba Social -->
+    <section class="py-24 bg-zinc-900">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="font-impact text-5xl text-center mb-16 uppercase">LA COMUNIDAD KRAZZY</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-black p-8 rounded-3xl border border-white/5 shadow-xl">
+                    <div class="flex text-orange-500 mb-4">
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                    </div>
+                    <p class="italic text-gray-400 mb-6">"La mejor pizza estilo NY de la ciudad. El tamaño es impresionante y el precio muy justo."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-orange-500"></div>
+                        <span class="font-bold">Marcos G.</span>
+                    </div>
+                </div>
+                <div class="bg-black p-8 rounded-3xl border border-white/5 shadow-xl md:mt-8">
+                    <div class="flex text-orange-500 mb-4">
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                    </div>
+                    <p class="italic text-gray-400 mb-6">"Pedimos la Krazzy Pepperoni y no pudimos terminarla. ¡Súper recomendada!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-orange-500"></div>
+                        <span class="font-bold">Elena R.</span>
+                    </div>
+                </div>
+                <div class="bg-black p-8 rounded-3xl border border-white/5 shadow-xl">
+                    <div class="flex text-orange-500 mb-4">
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                    </div>
+                    <p class="italic text-gray-400 mb-6">"El delivery llegó en menos de 20 minutos. La pizza aún quemaba. Increíble servicio."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-orange-500"></div>
+                        <span class="font-bold">Ricardo V.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ubicación y Contacto -->
+    <section id="contacto" class="py-24 bg-ny-dark border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="font-impact text-6xl text-orange-500 mb-8 italic">BÚSCANOS</h2>
+                    <ul class="space-y-6 text-xl">
+                        <li class="flex items-start gap-4">
+                            <i data-lucide="map-pin" class="text-orange-500 mt-1"></i>
+                            <span>Av. Principal de la Ciudad, Edif. Krazzy, PB.<br>Caracas, Venezuela.</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <i data-lucide="clock" class="text-orange-500"></i>
+                            <span>Lun - Dom: 12:00 PM - 11:00 PM</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <i data-lucide="phone" class="text-orange-500"></i>
+                            <span>+58 412 123 4567</span>
+                        </li>
+                    </ul>
+                    <div class="flex gap-4 mt-12">
+                        <a href="#" class="w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center hover:bg-orange-500 transition-all">
+                            <i data-lucide="instagram"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center hover:bg-orange-500 transition-all">
+                            <i data-lucide="twitter"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center hover:bg-orange-500 transition-all">
+                            <i data-lucide="facebook"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="rounded-3xl overflow-hidden h-[400px] border-4 border-white/10 grayscale hover:grayscale-0 transition-all duration-700">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15692.657513364235!2d-66.9036!3d10.4806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c2a58ad93ad677d%3A0x939b358a688582!2sCaracas!5e0!3m2!1ses!2sve!4v1620000000000!5m2!1ses!2sve" 
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contacto" class="bg-slate-950 text-white py-16 border-t border-white/5">
-        <div class="container mx-auto px-6 grid md:grid-cols-4 gap-12">
-            <div class="col-span-1 md:col-span-2">
-                <div class="mb-6">
-                    <img src="Logotype.jpg" alt="Amca Logo" class="main-logo brightness-0 invert opacity-90" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <span style="display:none;" class="font-bold text-xl uppercase tracking-tighter">Amca International Group</span>
-                </div>
-                <p class="text-slate-500 text-sm mb-6 max-w-sm" data-i18n="footer_desc">
-                    Leading strategic intermediation in the world's highest value markets. High-level financial and operational solutions.
-                </p>
-                <div class="flex space-x-4">
-                    <a href="#" class="text-slate-400 hover:text-amber-500 transition"><i class="fa-brands fa-linkedin-in text-xl"></i></a>
-                    <a href="#" class="text-slate-400 hover:text-amber-500 transition"><i class="fa-brands fa-x-twitter text-xl"></i></a>
-                </div>
-            </div>
-
-            <div>
-                <h4 class="font-bold text-amber-500 uppercase tracking-widest text-xs mb-6" data-i18n="footer_contact_title">Offices & Contact</h4>
-                <ul class="text-slate-500 text-sm space-y-4">
-                    <li class="flex items-start gap-2">
-                        <i class="fa-solid fa-location-dot mt-1 text-slate-300"></i>
-                        <span data-i18n="footer_address">Central Office: Financial District, International Hub.</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <i class="fa-solid fa-envelope text-slate-300"></i>
-                        <span>info@amcaintergroup.com</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <i class="fa-solid fa-phone text-slate-300"></i>
-                        <span>+1 (234) 567-890</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="font-bold text-amber-500 uppercase tracking-widest text-xs mb-6" data-i18n="footer_links_title">Quick Links</h4>
-                <ul class="text-slate-500 text-sm space-y-2">
-                    <li><a href="#divisiones" class="hover:text-white transition" data-i18n="link_commodities">Commodities</a></li>
-                    <li><a href="#divisiones" class="hover:text-white transition" data-i18n="link_finance">Engineering Finance</a></li>
-                    <li><a href="#divisiones" class="hover:text-white transition" data-i18n="link_energy">Energy & Oil</a></li>
-                    <li><a href="#compliance" class="hover:text-white transition" data-i18n="link_legal">Legal Notice</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="container mx-auto px-6 mt-16 pt-8 border-t border-white/5 text-center text-slate-600 text-xs">
-            <p data-i18n="footer_copy">© 2026 AMCA INTERNATIONAL GROUP. All Rights Reserved. | www.amcaintergroup.com</p>
-        </div>
+    <footer class="py-12 bg-black text-center border-t border-white/5">
+        <p class="font-impact text-2xl text-orange-500 mb-4 tracking-widest uppercase">KRAZZY PIZZA</p>
+        <p class="text-gray-500 text-sm">© 2024 Krazzy Pizza. Todos los derechos reservados.</p>
+        <p class="text-zinc-700 text-[10px] mt-4 uppercase">Made for NY Pizza Lovers</p>
     </footer>
 
     <script>
-        const translations = {
-            en: {
-                nav_home: "Home",
-                nav_about: "About Us",
-                nav_divisions: "Divisions",
-                nav_compliance: "Compliance",
-                nav_contact: "Contact",
-                hero_tagline: "Global Leadership in Strategic Assets",
-                hero_title: "Global Excellence in Trading & Finance",
-                hero_subtitle: "Connecting markets through comprehensive solutions in commodities, energy, finance, and infrastructure.",
-                hero_btn_divisions: "Our Divisions",
-                hero_btn_about: "About the Group",
-                stat_countries: "Operating Countries",
-                stat_banking: "Banking Relations",
-                stat_refineries: "Refinery Access",
-                stat_trading: "International Trading",
-                about_title: "Institutional Strength and Global Reach",
-                about_desc: "Amca International Group is an asset management conglomerate specialized in critical sectors of the global economy. We serve as the ultimate bridge between institutional supply and sovereign and private capital demand.",
-                mission_title: "Mission",
-                mission_desc: "Facilitate global trade of strategic assets through innovative financial solutions.",
-                vision_title: "Vision",
-                vision_desc: "To be the undisputed reference partner in international business architecture by 2030.",
-                div_main_title: "Strategic Business Units",
-                div1_title: "Commodities & Precious Metals",
-                div1_desc: "Intermediation of high-value physical assets: Gold (Bullion), Silver, Diamonds, and Industrial Metals (Bronze, Aluminum).",
-                div1_item1: "• Guaranteed Traceability",
-                div1_item2: "• Armored Logistics",
-                div2_title: "Financial Intermediation",
-                div2_desc: "Financial engineering for international trade. Management of SBLC (Standby Letters of Credit) and BG (Bank Guarantees).",
-                div2_item1: "• Tier 1 Banking Relations",
-                div2_item2: "• Instrument Monetization",
-                div3_title: "Energy, Oil & Gas",
-                div3_desc: "Direct representation of refineries. Products: Crude, EN590 Diesel, Jet Fuel A1, and petrochemical derivatives.",
-                div3_item1: "• SPOT and Lifts Contracts",
-                div3_item2: "• Direct Refinery Access",
-                div4_title: "International Real Estate",
-                div4_desc: "Development and marketing of luxury projects, commercial and industrial complexes globally.",
-                div4_item1: "• Strategic Asset Hunting",
-                div4_item2: "• Investment Management",
-                div5_title: "Global Food Trading",
-                div5_desc: "Massive import and export of food: Grains, Proteins, Sugar, and Oils. Strategic supply of fresh fruits and vegetables.",
-                div5_item1: "• Halal / Kosher Certification",
-                div5_item2: "• Cold Supply Chain Management",
-                div5_item3: "• Phytosanitary Traceability",
-                compliance_title: "Commitment to Compliance",
-                compliance_desc: "We operate under the strictest international Due Diligence (KYC/AML) standards. Transparency is our fundamental pillar to ensure the safety of every transaction and our banking partners.",
-                compliance_btn1: "Request Protocols",
-                compliance_btn2: "KYC Portal",
-                footer_desc: "Leading strategic intermediation in the world's highest value markets. High-level financial and operational solutions.",
-                footer_contact_title: "Offices & Contact",
-                footer_address: "Central Office: Financial District, International Hub.",
-                footer_links_title: "Quick Links",
-                link_commodities: "Commodities",
-                link_finance: "Engineering Finance",
-                link_energy: "Energy & Oil",
-                link_legal: "Legal Notice",
-                footer_copy: "© 2026 AMCA INTERNATIONAL GROUP. All Rights Reserved. | www.amcaintergroup.com"
-            },
-            es: {
-                nav_home: "Inicio",
-                nav_about: "Nosotros",
-                nav_divisions: "Divisiones",
-                nav_compliance: "Compliance",
-                nav_contact: "Contacto",
-                hero_tagline: "Liderazgo Global en Activos Estratégicos",
-                hero_title: "Global Excellence in Trading & Finance",
-                hero_subtitle: "Conectando mercados a través de soluciones integrales en commodities, energía, finanzas e infraestructura.",
-                hero_btn_divisions: "Nuestras Divisiones",
-                hero_btn_about: "Sobre el Grupo",
-                stat_countries: "Países Operativos",
-                stat_banking: "Relaciones Bancarias",
-                stat_refineries: "Acceso a Refinerías",
-                stat_trading: "Trading Internacional",
-                about_title: "Solidez Institucional y Alcance Global",
-                about_desc: "Amca International Group es un conglomerado de gestión de activos especializado en sectores críticos de la economía mundial. Servimos como el puente definitivo entre la oferta institucional y la demanda de capital soberano y privado.",
-                mission_title: "Misión",
-                mission_desc: "Facilitar el comercio global de activos estratégicos mediante soluciones financieras innovadoras.",
-                vision_title: "Visión",
-                vision_desc: "Consolidarnos como el socio de referencia indiscutible en la arquitectura de negocios internacionales para 2030.",
-                div_main_title: "Unidades de Negocio Estratégicas",
-                div1_title: "Commodities & Precious Metals",
-                div1_desc: "Intermediación de activos físicos de alto valor: Oro (Bullion), Plata, Diamantes y Metales Industriales (Bronce, Aluminio).",
-                div1_item1: "• Trazabilidad Garantizada",
-                div1_item2: "• Logística Blindada",
-                div2_title: "Financial Intermediation",
-                div2_desc: "Ingeniería financiera para el comercio internacional. Gestión de SBLC (Standby Letters of Credit) y BG (Bank Guarantees).",
-                div2_item1: "• Relaciones Interbancarias Tier 1",
-                div2_item2: "• Monetización de Instrumentos",
-                div3_title: "Energy, Oil & Gas",
-                div3_desc: "Representación directa de refinerías. Productos: Crudo, Diésel EN590, Jet Fuel A1 y derivados petroquímicos.",
-                div3_item1: "• Contratos SPOT y Lifts",
-                div3_item2: "• Acceso Directo a Refinerías",
-                div4_title: "International Real Estate",
-                div4_desc: "Desarrollo y comercialización de proyectos de lujo, complejos comerciales e industriales a nivel global.",
-                div4_item1: "• Asset Hunting Estratégico",
-                div4_item2: "• Gestión de Inversiones",
-                div5_title: "Global Food Trading",
-                div5_desc: "Importación y exportación masiva de alimentos: Granos, Proteínas, Azúcar y Aceites. Suministro estratégico de frutas y hortalizas frescas.",
-                div5_item1: "• Certificación Halal / Kosher",
-                div5_item2: "• Gestión de Supply Chain Fría",
-                div5_item3: "• Trazabilidad Fitosanitaria",
-                compliance_title: "Compromiso con el Cumplimiento (Compliance)",
-                compliance_desc: "Operamos bajo los más estrictos estándares internacionales de Debida Diligencia (KYC/AML). La transparencia es nuestro pilar fundamental para garantizar la seguridad de cada transacción y de nuestros aliados bancarios.",
-                compliance_btn1: "Solicitar Protocolos",
-                compliance_btn2: "Portal KYC",
-                footer_desc: "Liderando la intermediación estratégica en los mercados mundiales de mayor valor. Soluciones financieras y operativas de alto nivel.",
-                footer_contact_title: "Sedes & Contacto",
-                footer_address: "Central Office: Financial District, International Hub.",
-                footer_links_title: "Enlaces Rápidos",
-                link_commodities: "Commodities",
-                link_finance: "Engineering Finance",
-                link_energy: "Energy & Oil",
-                link_legal: "Legal Notice",
-                footer_copy: "© 2026 AMCA INTERNATIONAL GROUP. Todos los derechos reservados. | www.amcaintergroup.com"
-            }
+        // Lucide Icons Initialization
+        lucide.createIcons();
+
+        // Data de menú
+        const menuData = {
+            pizzas: [
+                { name: "Krazzy Pepperoni", price: "$12.00", desc: "Doble pepperoni, mozzarella premium y borde crocante.", img: "https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=500&q=80" },
+                { name: "The Big Apple", price: "$15.00", desc: "Nuestra pizza más grande con todos los vegetales frescos.", img: "https://images.unsplash.com/photo-1574129810594-a09991266b56?auto=format&fit=crop&w=500&q=80" },
+                { name: "Cheese Explosion", price: "$10.00", desc: "Mezcla de 4 quesos con un toque de orégano salvaje.", img: "https://images.unsplash.com/photo-1548365328-8c6db3220e4c?auto=format&fit=crop&w=500&q=80" }
+            ],
+            entradas: [
+                { name: "Crazy Sticks", price: "$4.00", desc: "Bastones de ajo y parmesano con salsa marinara.", img: "https://images.unsplash.com/photo-1626078436897-4467d383b8b1?auto=format&fit=crop&w=500&q=80" },
+                { name: "NY Wings", price: "$8.00", desc: "Alitas picantes estilo buffalo con salsa ranch.", img: "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?auto=format&fit=crop&w=500&q=80" }
+            ],
+            bebidas: [
+                { name: "Refresco XL", price: "$2.50", desc: "Vaso gigante de tu soda favorita.", img: "https://images.unsplash.com/photo-1581006852262-e4307cf6283a?auto=format&fit=crop&w=500&q=80" },
+                { name: "Té de la Casa", price: "$2.00", desc: "Té frío con limón y menta fresca.", img: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=500&q=80" }
+            ]
         };
 
-        function changeLanguage(lang) {
-            const elements = document.querySelectorAll('[data-i18n]');
-            elements.forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    el.textContent = translations[lang][key];
-                }
+        function switchTab(tab) {
+            // Actualizar botones de tabs
+            document.querySelectorAll('.menu-tab').forEach(btn => btn.classList.remove('menu-tab-active'));
+            document.getElementById(`tab-${tab}`).classList.add('menu-tab-active');
+
+            // Renderizar items
+            const container = document.getElementById('menu-container');
+            container.innerHTML = '';
+            
+            menuData[tab].forEach(item => {
+                container.innerHTML += `
+                    <div class="bg-black border border-white/10 rounded-3xl overflow-hidden hover:border-orange-500 transition-all group">
+                        <div class="h-48 overflow-hidden">
+                            <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-black text-xl uppercase tracking-tighter">${item.name}</h4>
+                                <span class="text-orange-500 font-black text-xl">${item.price}</span>
+                            </div>
+                            <p class="text-gray-400 text-sm leading-relaxed">${item.desc}</p>
+                            <button onclick="window.open('https://wa.me/123456789?text=Hola,%20quiero%20pedir%20${encodeURIComponent(item.name)}', '_blank')" 
+                                class="mt-4 w-full bg-zinc-800 hover:bg-orange-600 text-white hover:text-black py-2 rounded-xl font-bold transition-all text-xs uppercase">
+                                Añadir al pedido
+                            </button>
+                        </div>
+                    </div>
+                `;
             });
-
-            document.getElementById('btn-en').classList.remove('lang-active', 'text-slate-900');
-            document.getElementById('btn-en').classList.add('text-slate-400');
-            document.getElementById('btn-es').classList.remove('lang-active', 'text-slate-900');
-            document.getElementById('btn-es').classList.add('text-slate-400');
-
-            const activeBtn = document.getElementById(`btn-${lang}`);
-            activeBtn.classList.add('lang-active');
-            activeBtn.classList.remove('text-slate-400');
-            activeBtn.classList.add('text-slate-900');
-
-            localStorage.setItem('preferredLang', lang);
-            document.documentElement.lang = lang;
         }
 
-        window.onload = () => {
-            const savedLang = localStorage.getItem('preferredLang') || 'en';
-            changeLanguage(savedLang);
-        };
+        // Carga inicial del menú
+        document.addEventListener('DOMContentLoaded', () => {
+            switchTab('pizzas');
+        });
     </script>
 </body>
 </html>
